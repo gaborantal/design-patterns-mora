@@ -29,7 +29,7 @@ class Polo extends Ruhadarab {
     }
 
     public int mikorFazik() {
-        return super.mikorFazik() + 2;
+        return super.mikorFazik() - 2;
     }
 }
 
@@ -39,7 +39,7 @@ class Sapka extends Ruhadarab {
     }
 
     public int mikorFazik() {
-        return super.mikorFazik() + 1;
+        return super.mikorFazik() - 1;
     }
 }
 
@@ -49,7 +49,7 @@ class Nadrag extends Ruhadarab {
     }
 
     public int mikorFazik() {
-        return super.mikorFazik() + 4;
+        return super.mikorFazik() - 4;
     }
 }
 class Pulover extends Ruhadarab {
@@ -58,7 +58,7 @@ class Pulover extends Ruhadarab {
     }
 
     public int mikorFazik() {
-        return super.mikorFazik() + 5;
+        return super.mikorFazik() - 5;
     }
 }
 
@@ -68,16 +68,17 @@ class Cipo extends Ruhadarab {
     }
 
     public int mikorFazik() {
-        return super.mikorFazik() + 2;
+        return super.mikorFazik() - 2;
     }
 }
 public class DecoratorMain {
     public static void main(String[] args) {
         Entitas e = new Polo(new Nadrag(new Ember()));
-        System.out.println(e.mikorFazik()); //21
-        System.out.println(new Pulover(e).mikorFazik()); //26
-        System.out.println(new Cipo(new Polo(new Pulover(new Nadrag(new Ember())))).mikorFazik()); //28
-        System.out.println(new Cipo(new Polo(new Pulover(new Ember()))).mikorFazik()); //24
+        System.out.println(e.mikorFazik()); //9
+        System.out.println(new Pulover(e).mikorFazik()); //4
+        System.out.println(new Cipo(new Polo(new Nadrag(new Ember()))).mikorFazik()); //7
+        System.out.println(new Cipo(new Polo(new Pulover(new Ember()))).mikorFazik()); //6
+
 
         e = new Sapka(e);
     }
